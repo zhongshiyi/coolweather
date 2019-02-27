@@ -23,6 +23,7 @@ public class Utility {
                     Province province = new Province();
                     province.setProvinceName(provinceObject.getString("name"));
                     province.setProvinceCode(provinceObject.getInt("id"));
+                    province.save();
                 }
                 return true;
             }catch (JSONException e){
@@ -43,7 +44,8 @@ public class Utility {
                     JSONObject cityObject = allCities.getJSONObject(i);
                     City city = new City();
                     city.setCityName(cityObject.getString("name"));
-                    city.setProvinceid(provinceId);
+                    city.setCityCode(cityObject.getInt("id"));
+                    city.setProvinceId(provinceId);
                     city.save();
                 }
                 return true;
@@ -57,7 +59,7 @@ public class Utility {
     /**
      * 解析和处理服务器返回的县级数据
      */
-    public static boolean handleResponse(String response,int cityId){
+    public static boolean handleCountyResponse(String response,int cityId){
         if (!TextUtils.isEmpty(response)){
             try {
                 JSONArray allCounties = new JSONArray(response);
