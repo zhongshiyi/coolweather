@@ -1,3 +1,5 @@
+//工具类
+
 package com.example.coolweather.util;
 
 import android.text.TextUtils;
@@ -82,6 +84,7 @@ public class Utility {
     }
 
     /**
+     * 用于解析天气JSON数据的方法
      * 将返回的JSON数据解析成Weather实体类
      */
     public static Weather handleWeatherResponse(String response){
@@ -95,4 +98,13 @@ public class Utility {
         }
         return null;
     }
+    /**
+     * 我们提供了handleProvinceResponse(),handleCityResponse,handleCountyResponse()这3个方法
+     * 分别用于解析和处理服务器返回的省级、市级和县级数据。处理的方法都是类似的，先使用JSONArray和
+     * JSONObject将数据解析出来，然后组装为实体类对象，再调用save()方法将数据储存到数据库中。由于这
+     * 里的JSON数据结构比较简单，就不使用GSON来进行解析了。
+     *
+     * 由于遍历全国省市县的功能在后面还会复用，因此我们就不写在活动里，而是写在碎片里，这样复用的时候
+     * 直接在布局里面引用碎片就可以了  创建res/layout/choose_area.xml布局
+     */
 }

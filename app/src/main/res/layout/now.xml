@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp">
-
+    //天气信息的布局
     <TextView
         android:id="@+id/degree_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:textColor="#fff"
-        android:textSize="20sp"/>
+        android:textSize="20sp"/>显示当前气温
 
     <TextView
         android:id="@+id/weather_info_text"
@@ -19,5 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:textColor="#fff"
-        android:textSize="20sp"/>
+        android:textSize="20sp"/>显示天气概况
+
 </LinearLayout>

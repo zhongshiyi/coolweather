@@ -3,12 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background ="#fff" >//背景颜色
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="#de3c42f1">//标题栏的背景颜色
 
         <TextView
             android:id="@+id/title_text"
@@ -16,16 +16,16 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="#fff"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/back_button"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/ic_back"/>
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_back" />
     </RelativeLayout>
 
     <ListView
@@ -34,4 +34,7 @@
         android:layout_height="wrap_content">
 
     </ListView>
+    //定义一个头布局作为标题栏，TextView用来显示标题内容
+    //Button用来执行返回操作，下面定义了一个ListView，省市县的数据就显示在这儿
+    //接下来编写遍历省市县数据的碎片，新建ChooseAreaFragment继承自Fragment
 </LinearLayout>

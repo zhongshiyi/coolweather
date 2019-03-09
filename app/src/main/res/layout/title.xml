@@ -12,7 +12,7 @@
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/ic_home"/>
+            android:background="@drawable/ic_home"/>//home的按钮
 
         <TextView
             android:id="@+id/title_city"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="#fff"
-            android:textSize="20sp" />
+            android:textSize="20sp" />//居中显示城市名
 
         <TextView
             android:id="@+id/title_update_time"
@@ -30,7 +30,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:textColor="#fff"
-            android:textSize="16sp" />
+            android:textSize="16sp" />//居右显示更新时间
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -9,7 +9,7 @@
         android:id="@+id/bing_pic_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"/>让bing成为背景图片
 
 
     <android.support.v4.widget.DrawerLayout
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="none"
-                android:overScrollMode="never">
+                android:overScrollMode="never">以滚动的方式查看屏幕以外的内容
 
                 <LinearLayout
                     android:orientation="vertical"
