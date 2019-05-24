@@ -29,9 +29,14 @@ public class AutoUpdateService extends Service {
         return null;
     }
 
+    /**
+     *在onStartCommand()方法中先是调用了updateWeather()方法来更新天气，后调用updateBingPic()方法来
+     * 更新背景图片。
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        updateWeather();//调用updateWeather()方法来更新天气
+        updateWeather();//调用updateWeather()方法来更新天/9
+        // 气
         updateBingPic();//然后调用updateBingPic()方法来更新背景图片
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         int anHour = 8 * 60 * 60 * 1000; //这是8小时的毫秒数

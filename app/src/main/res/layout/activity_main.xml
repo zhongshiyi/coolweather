@@ -9,5 +9,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
         //布局文件很简单，只是定义了一个FrameLayout,然后将ChooseAreaFragment添加进来，并让它充满整个布局。
-        //修改styles.xml
+    //修改styles.xml
 </FrameLayout>

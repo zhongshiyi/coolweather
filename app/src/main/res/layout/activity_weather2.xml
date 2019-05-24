@@ -15,7 +15,7 @@
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent">控制主屏幕显示的内容
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"
@@ -57,7 +57,7 @@
             android:name="com.example.coolweather.ChooseAreaFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="start"/>
+            android:layout_gravity="start"/>控制滑动菜单显示的内容
 
     </android.support.v4.widget.DrawerLayout>
 

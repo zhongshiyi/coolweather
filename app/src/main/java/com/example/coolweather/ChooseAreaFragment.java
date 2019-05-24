@@ -113,7 +113,7 @@ public class ChooseAreaFragment extends Fragment {
                 }else if (currentLevel == LEVEL_COUNTY){
                     /**
                      * 如果当前级别是LEVEL_COUNTY,就启动WeatherActivity，
-                     * 并把当前选中的县的天气id从第过去，另外需要在MainActivity中加入一个缓存数据的判断
+                     * 并把当前选中的县的天气id传递过去，另外需要在MainActivity中加入一个缓存数据的判断
                      */
                     String weatherId = countyList.get(position).getWeatherId();
                     //instanceof 关键字可以用来判断一个对象是否属于某个类的实例
@@ -138,7 +138,7 @@ public class ChooseAreaFragment extends Fragment {
                 if (currentLevel == LEVEL_COUNTY){
                     queryCities();
                 }else if (currentLevel == LEVEL_CITY){
-                    queryProvinces();
+                    queryProvinces();//也就是从这里开始加载省级数据的
                 }
             }
         });
@@ -147,6 +147,9 @@ public class ChooseAreaFragment extends Fragment {
 
     /**
      * 查询全国所有的省，优先从数据库查询，如果没有查询到再去服务器上查询
+     * queryProvinces()方法会布局标题设置为“中国”，将返回键隐藏起来，然后
+     * 调用litePal的查询接口来从数据库读取省级数据
+     * queryFromServer()方法
      */
     private void queryProvinces(){
         titleText.setText("中国");
@@ -214,6 +217,15 @@ public class ChooseAreaFragment extends Fragment {
     }
     /**
      * 根据传入的地址和类型从服务器上查询省市县数据
+     * 调用HttpUtil的sendOkHttpRequest()方法向服务器发送请求，响应的数据会回调到onResponse()方法
+     * 然后我们到这里去调用Utility的handleProvincesResponse()方法来解析和处理服务器返回数据。
+     * 解析之后，我们再次调用queryProvinces()方法来重新加载省级数据，由于queryProvinces()方法
+     * 牵扯到了UI操作，必须在主线程上调用，这里借助了runOnUiThread()来实现从子线程切换到主线程。
+     * 因为有缓存，因此调用queryProvinces()方法就会直接将数据显示到屏幕上了
+     *
+     * 到你点击某个省的时候就会进入到ListView的onItemClick()的方法中
+     *
+     * 最后把碎片添加到活动中activity_main.xml
      */
     private void queryFromServer(String address,final String type){
         showProgressDialog();
